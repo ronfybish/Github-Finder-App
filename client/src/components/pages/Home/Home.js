@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
-import Search from '../users/Search';
-import Users from '../users/Users';
+import Users from '../../users/Users';
+import Hero from './Hero'
+
+
+
 
 const Home = () => (
   <Fragment>
-    <Search />
+    <Hero />
     <Users />
   </Fragment>
 );

@@ -1,10 +1,12 @@
 import React from 'react';
+import theme from './components/utils/Theme'
+import {ThemeProvider} from '@material-ui/styles'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import User from './components/users/User';
 import Alert from './components/layout/Alert';
-import Home from './components/pages/Home';
-import About from './components/pages/About';
+import Home from './components/pages/Home/Home';
+import About from './components/pages/About/About';
 import NotFound from './components/pages/NotFound';
 
 import GithubState from './context/github/GithubState';
@@ -14,6 +16,7 @@ import './App.css';
 
 const App = () => {
   return (
+    <ThemeProvider theme={theme}>
     <GithubState>
       <AlertState>
         <Router>
@@ -32,6 +35,7 @@ const App = () => {
         </Router>
       </AlertState>
     </GithubState>
+    </ThemeProvider>
   );
 };
 
