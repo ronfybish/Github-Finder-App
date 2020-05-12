@@ -24,6 +24,7 @@ const Search = () => {
     <div>
       <form onSubmit={onSubmit} className='form'>
         <input
+          style={{borderRadius:'12px'}}
           type='text'
           name='text'
           placeholder='Search Users...'
@@ -31,6 +32,7 @@ const Search = () => {
           onChange={onChange}
         />
         <input
+          style={{borderRadius:'12px'}}
           type='submit'
           value='Search'
           className='btn btn-dark btn-block'

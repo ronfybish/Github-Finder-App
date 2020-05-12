@@ -7,9 +7,9 @@ import Grid from '@material-ui/core/Grid';
 
 
 const hero = {
-    title: 'Title of a longer featured blog post',
+    title: 'Github Finder',
     description:
-      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+      "Your place to find and explor new developers!",
     image: 'https://source.unsplash.com/random',
     imgText: 'main image description',
     linkText: 'Continue reading…',
@@ -43,13 +43,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 export default function MainFeaturedPost() {
   const classes = useStyles();
   
   return (
-    <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${hero.image})` }}>
-      {/* Increase the priority of the hero background image */}
+    <Paper className={classes.mainFeaturedPost} >
       {<img style={{ display: 'none' }}  alt={hero.imageText} />}
       <div className={classes.overlay} />
       <Grid container>

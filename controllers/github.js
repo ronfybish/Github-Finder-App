@@ -18,6 +18,7 @@ module.exports={
             const response = await axios.get(
                 `https://api.github.com/users/${username}?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}`
             );
+            console.log(response.data)
             res.status(200).json(response.data)
         } catch (error) {
             console.error(error.message);
