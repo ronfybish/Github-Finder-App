@@ -3,9 +3,6 @@ const dotenv=require('dotenv').config()
 const path = require('path');
 const app = express();
 
-
-
-
 //Middlewere
 
 app.use(express.json({ extended: false }));
@@ -14,11 +11,12 @@ app.use(express.urlencoded({extended: false}));
 //Import Routes 
 
 const githubRoute=require('./routes/github')
+const producthuntRoute=require('./routes/producthunt')
 
 
 //Routes Middlewere
 app.use('/api/github',githubRoute)
-
+app.use('/api/producthunt',producthuntRoute)
 
 
 if (process.env.NODE_ENV === 'production') {

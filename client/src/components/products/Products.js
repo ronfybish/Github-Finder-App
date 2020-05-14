@@ -1,10 +1,10 @@
 import React, { useContext,useEffect } from 'react';
-import UserItem from './UserItem';
+import ProductItem from './ProductItem';
 import Spinner from '../layout/Spinner';
+import ProducthuntContext from '../../context/producthunt/producthuntContext';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import GithubContext from '../../context/github/githubContext';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Users = () => {
+const Products = () => {
   const classes = useStyles();
-  const githubContext = useContext(GithubContext);
-  const {loading,users,getUsers}=githubContext
+  const producthuntContext = useContext(ProducthuntContext);
+  const {loading,getProducts,products}=producthuntContext
    
     useEffect(() => {
-          getUsers()
+        getProducts('developer-tools')
           // eslint-disable-next-line
     }, [])
 
@@ -30,8 +30,8 @@ const Users = () => {
     return (
       <Container className={classes.cardGrid} maxWidth="md">
       <Grid container spacing={4}>
-        {users.map((user) => (
-          <UserItem key={user.id} user={user}  />
+        {products.map((product) => (
+          <ProductItem key={product.id} product={product}  />
         ))}
       </Grid>
     </Container>
@@ -41,4 +41,4 @@ const Users = () => {
 
 
 
-export default Users;
+export default Products;
