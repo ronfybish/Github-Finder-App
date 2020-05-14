@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Search from '../../users/Search'
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -42,19 +44,28 @@ const Home = () => {
   return(
     <main>
         <div className={classes.heroContent}>
-        {<img style={{ display: 'none' }}   />}
+        {<img style={{ display: 'none' }} alt='replace'  />}
       <div className={classes.overlay} />
           <Container maxWidth="sm">
           <div className={classes.mainFeaturedPostContent}>
             <Typography component="h1" variant="h2" align="center"  color="inherit" gutterBottom>
-              Album layout
+              <strong>Github Finder</strong>
             </Typography>
-            <Typography variant="h5" align="center"  color="inherit" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+            <Typography variant="h4" align="center"  color="inherit" paragraph>
+              Finding the right people and building high performing projects together
             </Typography>
               <Search/>
+              <Typography variant="h6" align="center"  color="inherit" paragraph>
+                The modern developer's toolbox:
+            </Typography>
+              <Button
+                variant="contained"
+                color="secondary"
+                fullWidth
+                endIcon={<Icon>send</Icon>}
+              >
+                BEST Software Developers Tools
+              </Button>
             </div>
           </Container>
         </div>

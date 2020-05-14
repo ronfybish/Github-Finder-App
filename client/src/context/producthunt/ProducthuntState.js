@@ -7,35 +7,46 @@ import {
   SET_LOADING,
   GET_PRODUCT,
   GET_PRODUCTS,
+  SET_TOPIC
 } from '../types';
 
+const token='gje-a-bn0bDzNsYEtD4l2qh7D4J62TYr5jlK7HqMtUE'
+const config={
+  headers:{
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+      'Host': 'api.producthunt.com'
+  }
+}
 
 
 const Producthunt = props => {
   const initialState = {
     products: [],
     product: {},
+    topic:'developer-tools',
     loading: false
   };
 
   const [state, dispatch] = useReducer(ProducthuntReducer, initialState);
 
+  //Set Topic
+  const setTopic=(topic)=>{
+    dispatch({
+      type:SET_TOPIC,
+      payload:topic
+  })
+  
+  }
   //GET Products
   const getProducts=async (topic)=>{
     try {
-      const token='gje-a-bn0bDzNsYEtD4l2qh7D4J62TYr5jlK7HqMtUE'
-      const config={
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-            'Host': 'api.producthunt.com'
-        }
-    }
+
       setLoading()
       // const res= await axios.get(`/api/producthunt/${topic}`)
       const res= await axios.get(`https://api.producthunt.com/v1/posts/all?search[topic]=${topic}`,config);
-      console.log(res.data.posts)
+
       dispatch({
           type:GET_PRODUCTS,
           payload:res.data.posts
@@ -46,26 +57,17 @@ const Producthunt = props => {
     }
   }
 
-
   // Get Product
   const getProduct = async id => {
     try {
-      const token='gje-a-bn0bDzNsYEtD4l2qh7D4J62TYr5jlK7HqMtUE'
-      const config={
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-            'Host': 'api.producthunt.com'
-        }
-    }
+
       setLoading();
       // const res= await axios.get(`/api/producthunt/tool/${id}`)
       const res= await axios.get(`https://api.producthunt.com/v1/posts/${id}`,config);
       console.log(res.data)
       dispatch({
         type: GET_PRODUCT,
-        payload: res.data
+        payload: res.data.post
       });
       
     } catch (error) {
@@ -82,8 +84,10 @@ const Producthunt = props => {
         products: state.products,
         product: state.product,
         loading: state.loading,
+        topic: state.topic,
         getProducts,
-        getProduct
+        getProduct,
+        setTopic
       }}
     >
       {props.children}

@@ -2,6 +2,7 @@ import {
   SET_LOADING,
   GET_PRODUCT,
   GET_PRODUCTS,
+  SET_TOPIC
 } from '../types';
 
 export default (state, action) => {
@@ -23,6 +24,11 @@ export default (state, action) => {
       return {
         ...state,
         loading: true
+      };
+    case SET_TOPIC:
+      return {
+        ...state,
+        topic: action.payload,
       };
     default:
       return state;

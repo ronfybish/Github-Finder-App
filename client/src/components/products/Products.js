@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
 const Products = () => {
   const classes = useStyles();
   const producthuntContext = useContext(ProducthuntContext);
-  const {loading,getProducts,products}=producthuntContext
+  const {loading,getProducts,products,topic}=producthuntContext
    
     useEffect(() => {
-        getProducts('developer-tools')
+        getProducts(topic)
           // eslint-disable-next-line
-    }, [])
+    }, [topic])
 
   if (loading) {
     return <Spinner />;
