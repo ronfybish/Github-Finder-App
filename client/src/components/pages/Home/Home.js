@@ -1,6 +1,7 @@
 import React from 'react';
 import Users from '../../users/Users';
 import { makeStyles } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom'
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Search from '../../users/Search'
@@ -58,6 +59,7 @@ const Home = () => {
               <Typography variant="h6" align="center"  color="inherit" paragraph>
                 The modern developer's toolbox:
             </Typography>
+            <Link to='/devtools'>
               <Button
                 variant="contained"
                 color="secondary"
@@ -66,6 +68,7 @@ const Home = () => {
               >
                 BEST Software Developers Tools
               </Button>
+            </Link>
             </div>
           </Container>
         </div>
