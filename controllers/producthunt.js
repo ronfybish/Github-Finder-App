@@ -9,7 +9,8 @@ module.exports={
                 headers:{
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${process.env.PRODUCT_HUNT_TOKEN}`
+                    'Authorization': `Bearer ${process.env.PRODUCT_HUNT_TOKEN}`,
+                    'Host': 'api.producthunt.com'
                 }
             }
             const response = await axios.get(`https://api.producthunt.com/v1/posts/all?search[topic]=${topic}`,config);
