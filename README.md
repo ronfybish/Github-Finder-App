@@ -1,6 +1,6 @@
-# GitHub - Finder
+# Gitbub - Finder
 A quick and easy tool to search profiles in Gitahab
->*[Github-finder]https://githubfinder0526623435.netlify.com)*
+>*[https://www.github-finder.com/*
 
 
 ## Technologies
